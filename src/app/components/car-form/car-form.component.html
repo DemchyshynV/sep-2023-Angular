@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <input type="text" placeholder="brand" formControlName="brand">
+  <input type="text" placeholder="price" formControlName="price">
+  <input type="text" placeholder="year" formControlName="year">
+  <button [disabled]="form.invalid" (click)="carForUpdate?update():save()">{{carForUpdate?'update':'save'}}</button>
+
+  <div *ngIf="form.controls['brand'].errors && (form.controls['brand'].dirty || form.controls['brand'].touched)">
+    {{ form.controls['brand'].errors|json }}
+  </div>
+  <div *ngIf="form.controls['price'].errors && (form.controls['price'].dirty || form.controls['price'].touched)">
+    {{ form.controls['price'].errors|json }}
+  </div>
+  <div *ngIf="form.controls['year'].errors && (form.controls['year'].dirty || form.controls['year'].touched)">
+    {{ form.controls['year'].errors|json }}
+  </div>
+</form>

@@ -19,7 +19,8 @@ export class UserComponent {
   getDetails(): void {
     // this.router.navigate(['users',this.user.id])
     this.router.navigate([this.user.id], {
-      relativeTo: this.activatedRoute
+      relativeTo: this.activatedRoute,
+      state:this.user
     })
   }
 }

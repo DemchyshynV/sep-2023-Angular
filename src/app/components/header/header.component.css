@@ -1,17 +1,14 @@
-.container {
+.container{
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: blue;
-  font-size: 25px;
   height: 50px;
 }
 
-.container a {
+.container a{
   text-decoration: none;
+  font-size: 30px;
   color: snow;
-}
-
-.container a[class='active'] {
-  color: red;
 }

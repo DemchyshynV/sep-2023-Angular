@@ -1,16 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../services/user.service";
-import {IUser} from "../../../interfaces";
-import {UserComponent} from "../user/user.component";
-import {NgFor} from "@angular/common";
+import {UserService} from "../../services/user.service";
+import {IUser} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'app-users',
-  standalone: true,
-  imports: [
-    UserComponent,
-    NgFor
-  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })

@@ -13,7 +13,7 @@ import {NgIf} from "@angular/common";
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css'
 })
-export class UserDetailsComponent {
+export class UserDetailsComponent implements OnInit {
   user: IUser
 
   constructor(
@@ -21,13 +21,10 @@ export class UserDetailsComponent {
     private router: Router,
     private userService: UserService
   ) {
-    this.activatedRoute.params.subscribe(({id}) => {
-      this.user = this.router.getCurrentNavigation()?.extras.state as IUser
+  }
 
-      if (!this.user) {
-        this.userService.getById(id).subscribe(value => this.user = value)
-      }
-    })
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({userData}) => this.user = userData)
   }
 
 }

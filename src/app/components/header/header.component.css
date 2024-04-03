@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  background-color: blue;
+  color: snow;
+  height: 50px;
+
+}
+
+.container a {
+  text-decoration: none;
+  color: snow;
+  padding: 0 5px;
+}

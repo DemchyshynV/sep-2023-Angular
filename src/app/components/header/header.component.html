@@ -2,8 +2,15 @@
   <div>
     About Cars
   </div>
-  <div>
+
+  <div *ngIf="!authUser else auser">
     <a routerLink="/auth/login">Login</a>
     <a routerLink="/auth/register">Register</a>
   </div>
 </div>
+
+<ng-template #auser>
+  <div>
+    {{ authUser.username }} -- {{ authUser.last_login |date:'dd-MM-YYYY hh:mm'}}
+  </div>
+</ng-template>

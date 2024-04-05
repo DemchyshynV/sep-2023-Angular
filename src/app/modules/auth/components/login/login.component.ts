@@ -10,11 +10,12 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  error: boolean;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router:Router
+    private router: Router
   ) {
   }
 
@@ -30,8 +31,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login(this.form.value).subscribe(()=>{
-      this.router.navigate(['/cars'])
-    })
+    // this.authService.login(this.form.value).subscribe(() => {
+    //   this.router.navigate(['/cars'])
+    // })
+    this.authService.login(this.form.value).subscribe({
+        next: () => {
+          this.router.navigate(['/cars'])
+          this.error = false
+        },
+        error: err => {
+          this.error = true
+        },
+
+      }
+    )
   }
 }
